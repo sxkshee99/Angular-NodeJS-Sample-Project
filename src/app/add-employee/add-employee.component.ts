@@ -42,9 +42,4 @@ export class AddEmployeeComponent implements OnInit {
     })
     this.empRouter.navigate(['employees']);
   }
-
-  //onSubmit() {
-    //this.submitted = true;
-    //this.save();
-  //}
 } 
