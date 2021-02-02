@@ -1,0 +1,48 @@
+<h3>Create Employee</h3>
+<div style="width: 400px;">
+    <form (ngSubmit)="saveEmployee()">
+        <div class="form-group" [class.has-error]="idcontrol.invalid && idcontrol.touched">
+            <label for="id">ID</label>
+            <input required pattern="^[0-9]+$" type="text" class="form-control" id="id" required [(ngModel)]="employee.id" name="id" #idcontrol="ngModel">
+            <span class="help block" *ngIf="idcontrol.errors?.required && idcontrol.touched">
+                Required Field
+            </span>
+            <span class="help-block" *ngIf="idcontrol.errors?.pattern && idcontrol.touched">
+                Invalid Field
+            </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="namecontrol.invalid && namecontrol.touched">
+            <label for="name">Name</label>
+            <input required pattern="^[a-zA-Z]+$" type="text" class="form-control" id="name" required [(ngModel)]="employee.name" name="name" #namecontrol="ngModel">
+            <span class="help block" *ngIf="namecontrol.errors?.required && namecontrol.touched">
+                Required Field
+            </span>
+            <span class="help-block" *ngIf="namecontrol.errors?.pattern && namecontrol.touched">
+                Invalid Field
+            </span>
+
+        </div>
+
+        <div class="form-group" [class.has-error]="emailcontrol.invalid && emailcontrol.touched">
+            <label for="email">Email</label>
+            <input required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="text" class="form-control" id="email" required [(ngModel)]="employee.email" name="email" #emailcontrol="ngModel">
+            <span class="help-block" *ngIf="emailcontrol.errors?.required && emailcontrol.touched">
+                Required Field
+            </span>
+            <span class="help-block" *ngIf="emailcontrol.errors?.pattern && emailcontrol.touched">
+                Invalid Field
+            </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="deptcontrol.invalid && deptcontrol.touched">
+            <label for="dept">Department</label>
+            <input required type="text" class="form-control" id="dept" required [(ngModel)]="employee.dept" name="dept" #deptcontrol="ngModel"> 
+            <span class="help block" *ngIf="deptcontrol.errors?.required && deptcontrol.touched">
+                Required Field
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
